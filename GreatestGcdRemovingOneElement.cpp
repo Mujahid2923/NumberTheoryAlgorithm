@@ -89,3 +89,6 @@ int main()
 
     cout << ans << endl ;
 }
+
+problem link:
+https://atcoder.jp/contests/abc125/tasks/abc125_c
