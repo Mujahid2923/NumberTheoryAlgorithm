@@ -122,3 +122,77 @@ int main()
 
 ///Problem Link
 ///https://vjudge.net/contest/300539?fbclid=IwAR2t34w4hg0-FvOtvCXNIBvS8kk-IZ9J3Gq3A3CmW-s8ynr3Ed0eCWihTw0#problem/H
+
+-----------------------------------------------Efficient Approach-----------------------------------------------------------
+map < int , int > Mp ;
+vector < int > vec ;
+
+bool mark[ 50000 + 5];
+void findPrime( int n )
+{
+
+    memset( mark, false, sizeof mark ) ;
+
+    for( int i = 4 ; i <= n ; i += 2 )
+    {
+        mark[ i ] = true ;
+    }
+
+    mark[ 1 ] = true ;
+
+    for( int i = 3 ; i <= n ; i += 2 )
+    {
+        if( !mark[i] )
+        {
+            for( int j = 2 ; i*j <= n ; j++ )
+            {
+                mark[ i*j ] = true ;
+            }
+        }
+    }
+
+    for( int i = 1 ; i <= n ; i++ )
+    {
+        if( !mark[i] )
+        {
+            prime.pb( i );
+        }
+    }
+}
+
+    
+int divisor( int n )
+{
+    for( int i = 0 ; prime[i]*prime[i] <= n ; i++ )
+    {
+        while( ( n % prime[i] ) == 0 )
+        {
+            n = n / prime[i] ;
+            vec.pb( prime[i] ) ;
+        }
+    }
+
+    if( n > 1 )
+    {
+        vec.pb( n ) ;
+    }
+
+    for( auto i : vec )
+    {
+        Mp[i]++ ;
+    }
+
+
+    sort( all(vec) ) ;
+
+    int ans = 1;
+    vec.erase( unique( vec.begin(), vec.end() ), vec.end() ) ;
+    for( auto i : vec )
+    {
+        ans *= ( Mp[i] + 1 ) ;
+    }
+    Mp.clear() ;
+    vec.clear() ;
+    return ans ;
+}
+
