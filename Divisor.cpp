@@ -121,7 +121,7 @@ int main()
 }
 
 ///Problem Link
-///https://vjudge.net/contest/300539?fbclid=IwAR2t34w4hg0-FvOtvCXNIBvS8kk-IZ9J3Gq3A3CmW-s8ynr3Ed0eCWihTw0#problem/H
+///Uva12043
 
 -----------------------------------------------Efficient Approach-----------------------------------------------------------
 map < int , int > Mp ;
