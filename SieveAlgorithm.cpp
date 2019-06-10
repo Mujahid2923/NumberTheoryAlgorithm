@@ -1,38 +1,41 @@
 #include<bits/stdc++.h>
 using namespace std;
-vector<int>v;
 
-void findPrime(int n)
+vector< int > v ;
+bool prime[ 200005 ] ;
+
+void findPrime()
 {
-    bool prime[n];
-    memset(prime,false,sizeof prime);
+    int n = 200005 ;
+    memset( prime , false , sizeof prime ) ;
 
-    for(int i=4; i<=n; i+=2)
+    for( int i = 4 ; i <= n ; i += 2 )
     {
-        prime[i]=true;
+        prime[ i ] = true ;
     }
 
-    prime[1]=true;
+    prime[ 1 ] = true ;
 
-    for(int i=3; i*i<=n; i+=2)
+    for( int i = 3 ; i * i <= n ; i += 2 )
     {
-        if(!prime[i])
+        if( !prime[ i ] )
         {
-            for(int j=2; i*j<=n; j++)
+            for( int j = 2 ; i * j <= n ; j ++ )
             {
-                prime[i*j]=true;
+                prime[ i * j ] = true ;
             }
         }
     }
 
-    for(int i=1; i<=n; i++)
+    for( int i = 1 ; i <= n ; i ++ )
     {
-        if(!prime[i])
+        if( !prime[ i ] )
         {
-            v.push_back(i);
+            v.push_back( i ) ;
         }
     }
 }
+
 int main()
 {
     int n;
