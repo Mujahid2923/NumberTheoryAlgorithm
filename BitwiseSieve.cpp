@@ -9,7 +9,7 @@ void findPrime()
 {
     int rt = sqrt( MAXN ) + 1 ;
 
-    for(int i = 3; i < rt; i+=2)
+    for( int i = 3 ; i < rt ; i += 2 )
     {
         if( !status[ i ] )
         {
@@ -20,13 +20,13 @@ void findPrime()
         }
     }
 
-    v.push_back(2);
+    v.push_back( 2 ) ;
 
-    for(int i = 3; i < MAXN; i+=2)
+    for( int i = 3; i < MAXN; i += 2 )
     {
-        if(!status[i])
+        if( !status[ i ] )
         {
-            v.push_back(i);
+            v.push_back( i ) ;
         }
     }
 }
