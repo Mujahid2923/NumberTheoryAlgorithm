@@ -1,3 +1,34 @@
+----------------------Total trailing zeros-------------------------------
+ ll two(ll n)
+{
+    ll k = 0;
+    while( n )
+    {
+        k += n / 2 ;
+        n = n/2 ;
+    }
+    return k;
+}
+
+ll five(ll n)
+{
+    ll k = 0;
+
+    while( n )
+    {
+        k += n / 5 ;
+        n = n/5 ;
+    }
+    return k;
+}
+
+ll x = two( a ) ;
+ll y = five( b ) ;
+ll z = min( x, y ) ;
+------------------Here z is number of trailing zeros---------------
+
+
+
 #include<bits/stdc++.h>
 
 ///...................................*****.................................................///
