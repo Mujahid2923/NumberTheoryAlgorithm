@@ -23,17 +23,17 @@ ll fact()
     }
 }
 
-ll power(ll x,ll y,ll m)
+ll power( ll x ,ll y ,ll m )
 {
-    if(y==0)
-        return 1;
-    if(y%2==0)
+    if( y == 0 )
+        return 1 ;
+    if( y % 2 == 0 )
     {
-        ll ret=power(x,y/2,m);
-        return ((ret%m)*(ret%m))%m;
+        ll ret = power( x , y / 2 , m ) ;
+        return ( ( ret % m )*( ret % m ) ) % m ;
     }
     else
-        return ((x%m)*(power(x,y-1,m)%m))%m;
+        return ( ( x % m ) * ( power( x , y - 1 , m ) % m ) ) % m ;
 }
 
 int main()
