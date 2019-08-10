@@ -196,3 +196,29 @@ int divisor( int n )
     return ans ;
 }
 
+
+-----------------------------Sum of Divisors--------------------------
+ Imagine you wish to work out the sum of divisors of the number 72. It would not take long to list the divisors, and then find their sum: 1 + 2 + 3 + 4 + 6 + 8 + 9 + 12 + 18 + 24 + 36 + 72 = 195.
+
+However, this method would become both tedious and difficult for large numbers like 145600. Fortunately, there is a simple and elegant method at hand.
+
+Let σ(n) be the sum of divisors of the natural number, n.
+
+For any prime, p: σ(p) = p + 1, as the only divisors would be 1 and p.
+
+Consider pa: σ(pa) = 1 + p + p2 + ... + pa (1).
+
+Multiplying by p: pσ(pa) = p + p2 + p3 + ... + pa + 1 (2).
+
+Subtracting (1) from (2): pσ(pa)−σ(pa) = (p−1)σ(pa) = pa+1 − 1.
+
+Hence σ(pa) = (pa+1 − 1)/(p − 1).
+
+For example, σ(34)=(35−1)/(3−1) = 242/2 = 121,
+and checking: 1 + 3 + 9 + 27 + 81 = 121.
+
+Although no proof is supplied here, the usefulness of the function, σ(n), is its multiplicativity,
+which means that σ(a×b×...)=σ(a)×σ(b)×..., where a, b, ..., are relatively prime.
+
+Returning to example, we use the fact that σ(72) = σ(23×32). As 23 and 32 are relatively prime,
+we can separately work out σ(23) = 24 − 1 = 15 and σ(32) = (33 − 1)/2 = 13. Therefore, σ(72) = 15×13 = 195.
