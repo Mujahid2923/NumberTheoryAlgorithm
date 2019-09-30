@@ -1,15 +1,21 @@
-ll pow(ll a, ll b,ll Mod)
+
+ll power( ll x,ll y,ll m )
 {
-    if(b==1) return a;
-    ll x=pow(a,b/2,Mod);
-    x=(x*x)%Mod;
-    if(b%2==1) x=(x*a)%Mod;
-        return x;
-}
-ll modInverse(ll a, ll m) {
-    return pow(a,m-2,m);
+    if( y == 0 )
+        return 1 ;
+    if( y % 2 == 0 )
+    {
+        ll ret = power( x , y/2 , m ) ;
+        return ( ( ret % m ) * ( ret % m ) ) % m ;
+    }
+    else
+        return ( ( x % m ) *( power( x , y-1 , m ) % m ) ) % m ;
 }
 
+ll modInverse( ll a, ll m )
+{
+    return power( a , m - 2 , m ) ;
+}
 
 ------------------------------------- Basic Problem ------------------------------------------
     ///...................................*****.................................................///
