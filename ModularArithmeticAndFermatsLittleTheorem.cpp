@@ -1,3 +1,16 @@
+ll pow(ll a, ll b,ll Mod)
+{
+    if(b==1) return a;
+    ll x=pow(a,b/2,Mod);
+    x=(x*x)%Mod;
+    if(b%2==1) x=(x*a)%Mod;
+        return x;
+}
+ll modInverse(ll a, ll m) {
+    return pow(a,m-2,m);
+}
+
+
 ------------------------------------- Basic Problem ------------------------------------------
     ///...................................*****.................................................///
 ///                  Mujahidul Islam ( mujahidulislam2923@gmail.com )                       ///
